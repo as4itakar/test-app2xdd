@@ -1,0 +1,30 @@
+@import "src/global.scss";
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+input:focus{
+    outline: none;
+}
+
+.next-button{
+    font-weight: bold;
+    padding: 10px 20px;
+    width: 100px;
+    border-radius: $full-radius;
+    background-color: $orange;
+    border: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+    transition-property: all;
+}
+
+.next-button:hover{
+    transform: scale(105%, 105%);
+    background-color: $black-orange;
+}

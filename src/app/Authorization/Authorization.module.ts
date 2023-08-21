@@ -6,6 +6,9 @@ import { AuthorizationComponent } from './Authorization.component';
   imports: [
     CommonModule
   ],
+  exports: [
+    AuthorizationComponent
+  ],
   declarations: [AuthorizationComponent]
 })
 export class AuthorizationModule { }
