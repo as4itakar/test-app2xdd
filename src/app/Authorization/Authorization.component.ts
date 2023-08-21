@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-Authorization',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AuthorizationComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit() {
   }
+
+
 
 }
