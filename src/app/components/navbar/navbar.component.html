@@ -1,0 +1,13 @@
+<header class="header">
+  <section class="header-container">
+    <article class="logo-container">
+      <h1>TestApp</h1>
+    </article>
+    <article class="nav-container">
+      <a [routerLink]="['']" class="nav-link">Home</a>
+      <a *ngIf="logined" [routerLink]="['./posts']" class="nav-link">Posts</a>
+      <button *ngIf="logined" type="button" (click)="unlogin()" class="out-button">{{ "Выйти" |uppercase}}</button>
+      <button *ngIf="!logined" type="button" [routerLink]="['./auth']" class="out-button">{{ "Войти" |uppercase}}</button>
+    </article>
+  </section>
+</header>

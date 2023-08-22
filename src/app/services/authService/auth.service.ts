@@ -1,21 +1,33 @@
 import { Injectable } from '@angular/core';
-import {of, Observable} from 'rxjs'
+import {of, Observable, BehaviorSubject} from 'rxjs'
 import { User } from 'src/app/types/User';
 
 @Injectable()
 export class AuthService {
 
+  submitSubject: BehaviorSubject<boolean>
+
+  constructor(){
+    this.submitSubject = new BehaviorSubject(localStorage.getItem('user') !== null)
+  }
+
   loadSubmit(user: User): Observable<true>{
     localStorage.setItem('user', JSON.stringify(user))
+    this.checkSubmit()
     return of(true)
   }
 
+  subscribeOnSubmit(){
+    return this.submitSubject
+  }
+
   checkSubmit(){
-    return localStorage.getItem('user') != null
+    this.submitSubject.next(localStorage.getItem('user') !== null)
   }
 
   deleteSubmit(): Observable<true>{
     localStorage.removeItem('user')
+    this.checkSubmit()
     return of(true)
   }
 }

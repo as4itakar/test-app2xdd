@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 
 
@@ -10,9 +11,13 @@ import { Router } from '@angular/router';
   templateUrl: './Authorization.component.html',
   styleUrls: ['./Authorization.component.scss']
 })
-export class AuthorizationComponent implements OnInit {
+export class AuthorizationComponent implements OnInit, OnDestroy {
 
   fg: FormGroup
+
+  logineSub: Subscription
+
+  logined: boolean
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -22,14 +27,22 @@ export class AuthorizationComponent implements OnInit {
       "password": new FormControl("", [Validators.required, Validators.pattern("[0-9]{2,}")])
     })
 
-    if(this.authService.checkSubmit()){
+    this.authService.subscribeOnSubmit().subscribe(
+      (data) => this.logined = data
+    )
+    
+    if(this.logined){
       this.router.navigate([''])
     }
+  }
+
+  ngOnDestroy(): void {
+    this.logineSub.unsubscribe()
   }
 
   submit(){
     const name = this.fg.controls['userName'].value
     const password = this.fg.controls['password'].value
-    this.authService.loadSubmit({name, password}).subscribe( () => this.router.navigate(['']))
+    this.authService.loadSubmit({name, password}).subscribe( () => this.router.navigate(['/posts']))
   }
 }

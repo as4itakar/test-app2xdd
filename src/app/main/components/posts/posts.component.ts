@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { ProductService } from 'src/app/services/productService/product.service';
 import { Post } from 'src/app/types/Post';
@@ -9,7 +9,7 @@ import { Post } from 'src/app/types/Post';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent implements OnInit, OnDestroy {
 
   postsSub: Subscription
 
@@ -21,6 +21,10 @@ export class PostsComponent implements OnInit {
     this.postsSub = this.productService.getPosts().subscribe(
       (data) => this.posts = data
     )
+  }
+
+  ngOnDestroy() {
+    this.postsSub.unsubscribe()
   }
 
 }

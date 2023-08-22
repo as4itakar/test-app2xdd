@@ -21,7 +21,12 @@
     align-items: center;
 }
 
+.logo-container{
+    user-select: none;
+}
+
 .nav-link{
+    cursor: pointer;
     margin-right: 10px;
 }
 
