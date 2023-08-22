@@ -1,20 +1,19 @@
-<main class="authorization-wrapper">
-  <section class="form-container">
-    <form [formGroup]="fg" (ngSubmit)="submit()" novalidate>
-      <article class="title-panel">
-        <h1>Авторизация</h1>
-      </article>
-      <article class="input-panel">
-        <input formControlName="userName" class="form-control" placeholder="Имя" type="text">
-        <p *ngIf="fg.controls['userName'].invalid && fg.controls['userName'].touched" class="form-error">Имя не заполнено</p>
-      </article>
-      <article class="input-panel">
-        <input formControlName="password" class="form-control" placeholder="Пароль"  type="password">
-        <p *ngIf="fg.controls['password'].invalid && fg.controls['password'].touched" class="form-error">Некорректный пароль</p>
-      </article>
-      <article class="submit-panel">
-        <button [disabled]="fg.invalid" type="submit" class="next-button">{{"войти" | uppercase}}</button>
-      </article>
-    </form>
-  </section>
-</main>
+<section class="form-container">
+  <form [formGroup]="fg" (ngSubmit)="submit()" novalidate>
+    <article class="title-panel">
+      <h1>Авторизация</h1>
+    </article>
+    <article class="input-panel">
+      <input formControlName="userName" class="form-control" placeholder="Имя" type="text">
+      <p *ngIf="fg.controls['userName'].invalid && fg.controls['userName'].touched" class="form-error">Имя не заполнено</p>
+    </article>
+    <article class="input-panel">
+      <input formControlName="password" class="form-control" placeholder="Пароль"  type="password">
+      <p *ngIf="fg.controls['password'].invalid && fg.controls['password'].touched" class="form-error">Некорректный пароль</p>
+    </article>
+    <article class="submit-panel">
+      <button [disabled]="fg.invalid" type="submit" class="next-button">{{"войти" | uppercase}}</button>
+    </article>
+  </form>
+</section>
+
