@@ -27,7 +27,7 @@ export class AuthorizationComponent implements OnInit, OnDestroy {
       "password": new FormControl("", [Validators.required, Validators.pattern("[0-9]{2,}")])
     })
 
-    this.authService.subscribeOnSubmit().subscribe(
+    this.logineSub = this.authService.subscribeOnSubmit().subscribe(
       (data) => this.logined = data
     )
     

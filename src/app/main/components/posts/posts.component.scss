@@ -31,3 +31,10 @@ tr:not(.table-head):hover{
     cursor: pointer;
     background-color: lightgray;
 }
+
+.loader-container{
+    position: relative;
+    margin: 0px auto;
+    min-width: 200px;
+    min-height:200px;
+}
