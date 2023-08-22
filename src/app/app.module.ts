@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthorizationModule } from './Authorization/Authorization.module';
+import { AuthService } from './services/authService/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -11,10 +12,10 @@ import { AuthorizationModule } from './Authorization/Authorization.module';
   ],
   imports: [
     BrowserModule,
+    AuthorizationModule,
     AppRoutingModule,
-    AuthorizationModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

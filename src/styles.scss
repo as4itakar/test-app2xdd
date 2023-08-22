@@ -34,3 +34,9 @@ input:focus{
     transform: scale(105%, 105%);
     background-color: $black-orange;
 }
+
+.next-button:disabled{
+    transform: scale(100%, 100%);
+    background-color: $light-orange;
+    cursor: no-drop;
+}

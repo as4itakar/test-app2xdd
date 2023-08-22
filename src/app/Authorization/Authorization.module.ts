@@ -4,15 +4,16 @@ import { AuthorizationComponent } from './Authorization.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     AuthorizationComponent
   ],
-  declarations: [AuthorizationComponent]
+  declarations: [AuthorizationComponent],
 })
 export class AuthorizationModule { }
