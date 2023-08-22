@@ -5,10 +5,22 @@
     src: url('assets/font/Roboto-Regular.ttf') format('truetype');
 }
 
+.main-wrapper{
+    min-height: 100vh;
+    background: linear-gradient(45deg, $blue, $light-blue);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 *{
     margin: 0;
     padding: 0;
     font-family: 'Roboto';
+}
+
+.content-wrapper{
+    margin: 70px 0 20px 0;
 }
 
 input:focus{
@@ -39,4 +51,10 @@ input:focus{
     transform: scale(100%, 100%);
     background-color: $light-orange;
     cursor: no-drop;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
 }

@@ -5,9 +5,9 @@
     background-color: $white;
     border-radius: $low-radius;
     padding: 10px 20px;
-    -webkit-box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
-    -moz-box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
-    box-shadow: 4px 4px 8px 3px rgba(34, 60, 80, 0.2);
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
 }
 
 .title-panel{
