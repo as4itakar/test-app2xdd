@@ -5,6 +5,8 @@ import { MainRoutingMoodule } from './main-routing.module';
 import { ProductService } from '../services/productService/product.service';
 import { PostsComponent } from './components/posts/posts.component';
 import { PostComponent } from './components/post/post.component';
+import { PostService } from '../services/postService/post.service';
+import { LoadBarComponent } from './components/load-bar/load-bar.component';
 
 @NgModule({
   imports: [
@@ -14,10 +16,12 @@ import { PostComponent } from './components/post/post.component';
   declarations: [
     MainComponent,
     PostsComponent,
-    PostComponent
+    PostComponent,
+    LoadBarComponent
   ],
   providers: [
-    ProductService
+    ProductService,
+    PostService
   ]
 })
 export class MainModule { }

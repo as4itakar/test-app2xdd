@@ -1,0 +1,16 @@
+@import 'src/global.scss';
+
+.not-found-container{
+    padding: 20px 10px;
+background-color: $white;
+    border-radius: $big-radius;
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+.not-found-container{
+    text-align: center;
+    width: 100%;
+    color: $black;
+}

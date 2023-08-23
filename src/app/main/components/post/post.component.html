@@ -1,3 +1,21 @@
-<p>
-  post works!
-</p>
+<section *ngIf="post" class="post-container">
+  <aside class="post-info">
+    <ul class="post-list">
+      <li>
+        <h5>userId: <span>{{post.userId}}</span></h5>
+      </li>
+      <li>
+        <h5>id: <span>{{post.id}}</span></h5>
+      </li>
+      <li>
+        <h5>title: <span>{{post.title}}</span></h5>
+      </li>
+    </ul>
+  </aside>
+  <hr>
+  <aside class="post-message">
+    <p>{{post.body}}</p>
+  </aside>
+  <a type="button" [routerLink]="['/posts']" class="close-button">&times;</a>
+</section>
+<app-load-bar *ngIf="!post"></app-load-bar>
