@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { StoreModule } from '@ngrx/store';
+import { AuthReducer } from './reducer/auth.reducer';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     NotFoundComponent
   ],
   imports: [
+    StoreModule.forRoot({ message: AuthReducer }),
     BrowserModule,
     AuthorizationModule,
     AppRoutingModule,

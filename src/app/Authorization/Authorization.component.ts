@@ -4,8 +4,6 @@ import { AuthService } from '../services/authService/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-
-
 @Component({
   selector: 'app-Authorization',
   templateUrl: './Authorization.component.html',

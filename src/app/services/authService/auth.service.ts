@@ -1,33 +1,36 @@
 import { Injectable } from '@angular/core';
 import {of, Observable, BehaviorSubject} from 'rxjs'
 import { User } from 'src/app/types/User';
+import { Store } from '@ngrx/store';
+import { AuthApp } from 'src/app/types/AuthApp';
 
 @Injectable()
 export class AuthService {
 
-  submitSubject: BehaviorSubject<boolean>
-
-  constructor(){
-    this.submitSubject = new BehaviorSubject(localStorage.getItem('user') !== null)
+  constructor(private store: Store<AuthApp>){
   }
 
   loadSubmit(user: User): Observable<true>{
     localStorage.setItem('user', JSON.stringify(user))
-    this.checkSubmit()
+    this.submit()
     return of(true)
   }
 
   subscribeOnSubmit(){
-    return this.submitSubject
+    return this.store.select('message')
   }
 
-  checkSubmit(){
-    this.submitSubject.next(localStorage.getItem('user') !== null)
+  unSubmit(){
+    this.store.dispatch({type: 'OUT'})
+  }
+
+  submit(){
+    this.store.dispatch({type: 'SUBMIT'})
   }
 
   deleteSubmit(): Observable<true>{
     localStorage.removeItem('user')
-    this.checkSubmit()
+    this.unSubmit()
     return of(true)
   }
 }
