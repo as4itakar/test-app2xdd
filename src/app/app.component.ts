@@ -1,5 +1,4 @@
-import { AfterViewChecked, Component } from '@angular/core';
-import { AuthService } from './services/authService/auth.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',

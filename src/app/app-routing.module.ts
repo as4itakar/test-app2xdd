@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorizationComponent } from './modules/authorization-module/authorization.component';
 import { AuthGuard } from './guards/auth.guard';
-import { MainComponent } from './modules/main/main.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
