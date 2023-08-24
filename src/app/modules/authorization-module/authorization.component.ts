@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { AuthService } from '../services/authService/auth.service';
+import { AuthService } from 'src/app/services/authService/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-Authorization',

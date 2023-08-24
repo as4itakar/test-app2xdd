@@ -16,7 +16,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logined: boolean
 
-  constructor(private authService: AuthService, private router: Router) { }
+  linkState: boolean
+
+  constructor(private authService: AuthService, private router: Router) { 
+    this.linkState = false
+  }
 
   ngOnInit() {
     this.changeLogedState()
@@ -37,6 +41,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.logineSub = this.authService.subscribeOnSubmit().subscribe(
       (data) => this.logined = data
     )
+  }
+
+  changeLinkState(){
+    console.log(this.linkState)
+    this.linkState = !this.linkState
   }
 
 }

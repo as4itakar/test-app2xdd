@@ -5,7 +5,7 @@ import { retry, catchError, map, delay } from 'rxjs/operators';
 import { Post } from 'src/app/types/Post';
 
 @Injectable()
-export class ProductService {
+export class PostsService {
 
     constructor(private http: HttpClient) { }
 

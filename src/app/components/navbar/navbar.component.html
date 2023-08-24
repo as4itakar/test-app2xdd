@@ -3,11 +3,16 @@
     <article class="logo-container">
       <h1>TestApp</h1>
     </article>
-    <article class="nav-container">
+    <article class="nav-container" [ngClass]="{visible: linkState}">
       <a [routerLink]="['']" class="nav-link">Главная</a>
       <a *ngIf="logined" [routerLink]="['./posts']" class="nav-link">Посты</a>
       <button *ngIf="logined" type="button" (click)="unlogin()" class="out-button">{{ "Выйти" |uppercase}}</button>
       <button *ngIf="!logined" type="button" [routerLink]="['./auth']" class="out-button">{{ "Войти" |uppercase}}</button>
+    </article>
+    <article (click)="changeLinkState()" class="nav-menu">
+      <div class="menu-el"></div>
+      <div class="menu-el"></div>
+      <div class="menu-el"></div>
     </article>
   </section>
 </header>

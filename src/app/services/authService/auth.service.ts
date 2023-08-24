@@ -7,12 +7,16 @@ import { AuthApp } from 'src/app/types/AuthApp';
 @Injectable()
 export class AuthService {
 
+  subMap: Map<boolean, string> 
+
   constructor(private store: Store<AuthApp>){
+    this.subMap = new Map([[true, 'SUBMIT'], [false, 'OUT'] ])
+    this.checkSubmit()
   }
 
   loadSubmit(user: User): Observable<true>{
     localStorage.setItem('user', JSON.stringify(user))
-    this.submit()
+    this.checkSubmit()
     return of(true)
   }
 
@@ -20,17 +24,14 @@ export class AuthService {
     return this.store.select('message')
   }
 
-  unSubmit(){
-    this.store.dispatch({type: 'OUT'})
-  }
-
-  submit(){
-    this.store.dispatch({type: 'SUBMIT'})
+  checkSubmit(){
+    const type: string = <string>this.subMap.get(localStorage.getItem('user') != null)
+    this.store.dispatch({type})
   }
 
   deleteSubmit(): Observable<true>{
     localStorage.removeItem('user')
-    this.unSubmit()
+    this.checkSubmit()
     return of(true)
   }
 }

@@ -1,15 +1,12 @@
 @import "src/global.scss";
 
 .header{
-    position: fixed;
     top:0;
     left: 0;
     width: 100%;
     padding: 10px 0;
     background-color: $white;
-    border-bottom: 2px solid $black;
-    border-bottom-left-radius: $big-radius;
-    border-bottom-right-radius: $big-radius;
+    z-index: 3;
 }
 
 .header-container{
@@ -19,10 +16,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+}
+
+article.visible{
+    display: block;
 }
 
 .logo-container{
     user-select: none;
+    font-size: 1.3em;
 }
 
 .nav-link{
@@ -36,6 +39,43 @@
     border-radius: $big-radius;
     border: none;
     font-weight: bold;
-    color: white;
+    color: $white;
     background: $black;
 }
+
+.nav-menu{
+    width: 30px;
+    height: 100%;
+    display: none;
+    cursor: pointer;
+}
+
+.menu-el{
+    width: 100%;
+    height: 4px;
+    background-color: $black;
+    margin: 2px 0;
+}
+
+@media screen and (max-width: 750px) {
+    .nav-container{
+      position: absolute;
+      bottom: -70px;
+      right: 0;
+      background-color: $white;
+      padding: 10px;
+      border-radius: $big-radius;
+      border: 2px solid $black;
+      display: none;
+    }
+
+    .nav-container a, .nav-container-button{
+        margin: 0 10px;
+    }
+    article.nav-menu {
+        display: block;
+    }
+    .header-container{
+        width: 90%;
+    }
+  }

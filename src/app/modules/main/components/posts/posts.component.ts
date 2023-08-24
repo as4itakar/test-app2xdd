@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { ProductService } from 'src/app/services/productService/product.service';
+import { Subscription } from 'rxjs';
+import { PostsService } from 'src/app/services/postsService/posts.service';
 import { Post } from 'src/app/types/Post';
 
 
@@ -15,7 +15,7 @@ export class PostsComponent implements OnInit, OnDestroy {
 
   posts: Post[]
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: PostsService) { }
 
   ngOnInit() {
     this.postsSub = this.productService.getPosts().subscribe(
